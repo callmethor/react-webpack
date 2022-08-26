@@ -2,7 +2,7 @@ const initialState = {
   list: ['Movies', 'Music', 'Books', 'Footballs'],
 }
 
-const hobbyReducer = (state = initialState, action) => {
+const hobbyReducer = (state = initialState, action : any) => {
   switch (action.type) {
     case 'ADD_HOBBY': {
       const newList = [...state.list];

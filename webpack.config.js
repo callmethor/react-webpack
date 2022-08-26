@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
-  entry: "./src/index.js", // Dẫn tới file index.js ta đã tạo
+  entry: "./src/index.tsx", // Dẫn tới file index.js ta đã tạo
   output: {
     path: path.join(__dirname, "/build"), // Thư mục chứa file được build ra
     filename: "bundle.js" // Tên file được build ra
@@ -17,8 +17,17 @@ module.exports = {
       {
         test: /\.css$/, // Sử dụng style-loader, css-loader cho file .css
         use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        loader: 'ts-loader'
       }
     ]
+  },
+  resolve:
+  {
+    extensions: ['.tsx', '.ts', '.js'],
   },
   // Chứa các plugins sẽ cài đặt trong tương lai
   plugins: [

@@ -4,16 +4,15 @@ import { addHobby } from '../redux/actions/Hobby';
 
 
 const Hobby = () => {
-  const listHobby = useSelector(state => state.hobby.list)
   const dispatch = useDispatch();
-  const [inputValue, setInPutValue] = useState();
+  const listHobby = useSelector((state: any) => state.hobby.list)
+  const [inputValue, setInPutValue] = useState<any>()
 
   console.log('hobby', listHobby);
-  console.log('log inputValue', inputValue);
 
   return (
     <div>
-      <h1>hooby: </h1>
+      <h1>hooby: {listHobby.map((h: string) => <span>,{h} </span>)} </h1>
       <input type="text" onChange={(e) => setInPutValue(e.target.value) }></input>
       <button onClick={() => dispatch(addHobby(inputValue))}>add</button>
     </div>
